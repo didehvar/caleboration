@@ -1,0 +1,30 @@
+/* CSS declarations go here */
+
+.description {
+	margin-top: 15px;
+}
+
+.desc > thead > tr > th,
+.desc > tbody > tr > th,
+.desc > tfoot > tr > th,
+.desc > thead > tr > td,
+.desc > tbody > tr > td,
+.desc > tfoot > tr > td {
+	border-top: none;
+}
+
+.desc > tbody > tr > td {
+	border: solid 1px #999;
+}
+
+.cal > tbody > tr > td {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border: solid 1px #999;
+	cursor: pointer;
+}
+
+.cal > thead > tr > th {
+	text-align: center;
+	border-bottom: none;
+}

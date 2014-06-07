@@ -1,0 +1,89 @@
+<head>
+  <title>Caleboration</title>
+</head>
+
+<body>
+  <div class="container">
+    {{> firstname}}
+
+    <div class="row text-center">
+      <div class="col-sm-6 col-sm-offset-3">
+        <p class="description">
+          Below is a calendar which reflects your availability. You can click on
+          a day to show that you're unavailable, clicking on it again will revert
+          it back to showing as available. By default you have been set as
+          available for all of the below dates.
+        </p>
+        <p>
+          <h4>Key</h4>
+          <table class="table desc">
+            <tbody>
+              <tr>
+                <td class="success">
+                  Everyone is available
+                </td>
+                <td class="danger">
+                  You're unavailable
+                </td>
+                <td class="warning">
+                  Someone else is unavailable
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+      </div>
+    </div>
+
+    {{> calRows}}
+  </div>
+</body>
+
+<template name="firstname">
+  <div class="row text-center">
+    <div class="col-sm-4 col-sm-offset-4">
+      <h3>Please enter your name</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <input type="text" class="form-control" id="firstname" placeholder="First name">
+    </div>
+  </div>
+</template>
+
+<template name="calRows">
+  <table class="table cal text-center">
+    <thead>
+      <tr>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+        <th>Monday</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+        <tr>
+          {{> calCells}}
+        </tr>
+        <!--<tr class="spacer"><td></td></tr>-->
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="calCells">
+  {{#each days}}
+    {{> calCellDay}}
+  {{/each}}
+</template>
+
+<template name="calCellDay">
+  <td class="{{status}}">
+    {{date}}
+  </td>
+</template>
