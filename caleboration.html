@@ -23,10 +23,7 @@
                   Everyone is available
                 </td>
                 <td class="danger">
-                  You're unavailable
-                </td>
-                <td class="warning">
-                  Someone else is unavailable
+                  Someone is unavailable
                 </td>
               </tr>
             </tbody>
@@ -46,8 +43,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <input type="text" class="form-control" id="firstname" placeholder="First name">
+    <div class="col-sm-4 col-sm-offset-4" title="Please enter your name">
+      <input type="text" class="form-control" id="firstname" placeholder="First name" autofocus>
     </div>
   </div>
 </template>
@@ -84,6 +81,22 @@
 
 <template name="calCellDay">
   <td class="{{status}}">
-    {{date}}
+    <p class="date">
+      {{date}}
+    </p>
+    <p class="failures">
+      {{#if failures}}
+        <h5>Unavailable</h5>
+        <ul class="list-unstyled">
+          {{#each failures}}
+            {{> failure}}
+          {{/each}}
+        </ul>
+      {{/if}}
+    </p>
   </td>
+</template>
+
+<template name="failure">
+  <li>{{this}}</li>
 </template>
